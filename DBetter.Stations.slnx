@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/DBetter.Stations.WebApi/DBetter.Stations.WebApi.csproj" />
+  </Folder>
+  <Folder Name="/tests/" />
+</Solution>
