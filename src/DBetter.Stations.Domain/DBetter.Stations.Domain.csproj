@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <InternalsVisibleTo Include="DBetter.Stations.Infrastructure"/>
       <PackageReference Include="CleanMessageBus.Abstractions" Version="2.0.1" />
       <PackageReference Include="Zwergenland.CleanDomainValidation" Version="1.1.1" />
     </ItemGroup>

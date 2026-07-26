@@ -8,7 +8,7 @@ public record Ril100Code
     internal const int MaxLength = 5;
     public string Value { get; private init; }
 
-    private Ril100Code(string value)
+    internal Ril100Code(string value)
     {
         Value = value;
     }

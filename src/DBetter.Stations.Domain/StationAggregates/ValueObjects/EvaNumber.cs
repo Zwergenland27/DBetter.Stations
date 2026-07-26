@@ -11,7 +11,7 @@ public record struct EvaNumber
 {
     public int Value { get; init; }
 
-    private EvaNumber(int value)
+    internal EvaNumber(int value)
     {
         Value = value;
     }

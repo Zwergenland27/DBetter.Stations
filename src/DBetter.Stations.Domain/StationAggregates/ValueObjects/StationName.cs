@@ -13,7 +13,7 @@ public record StationName
 {
     public string Value { get; private init; }
 
-    private StationName(string value)
+    internal StationName(string value)
     {
         Value = value;
     }

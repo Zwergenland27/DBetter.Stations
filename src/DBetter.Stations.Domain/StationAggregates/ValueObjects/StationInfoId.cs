@@ -6,7 +6,7 @@ public record struct StationInfoId
 {
     public int Value { get; }
 
-    private StationInfoId(int value)
+    internal StationInfoId(int value)
     {
         Value = value;
     }
