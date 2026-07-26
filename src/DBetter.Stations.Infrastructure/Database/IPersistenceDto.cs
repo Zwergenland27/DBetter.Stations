@@ -1,4 +1,4 @@
-namespace DBetter.Infrastructure.Database;
+namespace DBetter.Stations.Infrastructure.Database;
 
 public interface IPersistenceDto<TDomain, TPersistenceDto> where TPersistenceDto: IPersistenceDto<TDomain, TPersistenceDto>
 {

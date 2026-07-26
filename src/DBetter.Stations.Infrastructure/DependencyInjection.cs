@@ -1,8 +1,8 @@
-using DBetter.Infrastructure.Database;
+using DBetter.Stations.Infrastructure.Database;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DBetter.Infrastructure;
+namespace DBetter.Stations.Infrastructure;
 
 public static class DependencyInjection
 {

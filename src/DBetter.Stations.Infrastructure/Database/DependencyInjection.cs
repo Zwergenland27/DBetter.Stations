@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DBetter.Infrastructure.Database;
+namespace DBetter.Stations.Infrastructure.Database;
 
 public static class DependencyInjection
 {

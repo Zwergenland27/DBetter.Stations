@@ -1,4 +1,4 @@
-namespace DBetter.Infrastructure.Database;
+namespace DBetter.Stations.Infrastructure.Database;
 
 public static class MappingHelpers
 {
