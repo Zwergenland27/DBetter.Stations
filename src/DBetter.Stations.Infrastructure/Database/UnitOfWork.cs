@@ -1,4 +1,4 @@
-using DBetter.Stations.Application.Abstractions;
+using DBetter.Stations.Core.Abstractions;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace DBetter.Stations.Infrastructure.Database;

@@ -8,8 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\BahnDe.Stations\BahnDe.Stations.csproj" />
-      <ProjectReference Include="..\DBetter.Stations.Application\DBetter.Stations.Application.csproj" />
-      <ProjectReference Include="..\DBetter.Stations.Domain\DBetter.Stations.Domain.csproj" />
+      <ProjectReference Include="..\DBetter.Stations.Core\DBetter.Stations.Core.csproj" />
     </ItemGroup>
 
     <ItemGroup>

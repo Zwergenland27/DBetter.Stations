@@ -1,6 +1,6 @@
 using BahnDe.Stations;
-using DBetter.Stations.Application.StationFeatures.Search.Ports;
-using DBetter.Stations.Domain.StationAggregates;
+using DBetter.Stations.Core.StationAggregates;
+using DBetter.Stations.Core.StationAggregates.Features.Search.Ports;
 using DBetter.Stations.Infrastructure.Database;
 using DBetter.Stations.Infrastructure.StationAggregates;
 using Microsoft.Extensions.Configuration;
@@ -15,7 +15,7 @@ public static class DependencyInjection
         services.AddDatabase(configuration);
         services.AddBahnStationsApi();
         services.AddScoped<IStationRepository, StationRepository>();
-        services.AddScoped<IStationSearchQuery, StationQueryRepository>();
+        services.AddScoped<IInternalStationSearchService, InternalStationServiceRepository>();
         services.AddScoped<IExternalStationSearchProvider, StationSearchService>();
         return services;
     }

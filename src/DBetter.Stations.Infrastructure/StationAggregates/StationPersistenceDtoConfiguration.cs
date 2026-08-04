@@ -1,4 +1,4 @@
-using DBetter.Stations.Domain.StationAggregates.ValueObjects;
+using DBetter.Stations.Core.StationAggregates.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

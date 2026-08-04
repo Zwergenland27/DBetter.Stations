@@ -1,4 +1,4 @@
-using DBetter.Stations.Application.Abstractions;
+using DBetter.Stations.Core.Abstractions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

@@ -1,6 +1,6 @@
 using CleanMessageBus.Abstractions;
-using DBetter.Stations.Domain.StationAggregates;
-using DBetter.Stations.Domain.StationAggregates.ValueObjects;
+using DBetter.Stations.Core.StationAggregates;
+using DBetter.Stations.Core.StationAggregates.ValueObjects;
 using DBetter.Stations.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 
