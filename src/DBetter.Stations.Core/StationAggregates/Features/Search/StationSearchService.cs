@@ -28,10 +28,10 @@ public class StationSearchService(
         
         return ranking.Select(station => new StationSearchResult
         {
-            Id = station.Id.Value.ToString(),
-            EvaNumber = station.EvaNumber.Value,
-            StationName = station.OfficialName.Value,
-            Rl100Code = station.Ril100Code?.Value
+            Id = station.Id,
+            EvaNumber = station.EvaNumber,
+            StationName = station.OfficialName,
+            Rl100Code = station.Ril100Code
         });
     }
 
@@ -75,6 +75,7 @@ public class StationSearchService(
         }
         catch (Exception e)
         {
+            //TODO: Proper logging
             return [];
         }
     }
