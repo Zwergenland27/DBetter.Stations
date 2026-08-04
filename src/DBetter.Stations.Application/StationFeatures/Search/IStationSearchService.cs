@@ -1,4 +1,4 @@
-namespace DBetter.Stations.Application.StationFeatures.Search.Ports;
+namespace DBetter.Stations.Application.StationFeatures.Search;
 
 public interface IStationSearchService
 {

@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/src/">
+    <Project Path="src/BahnDe.Stations/BahnDe.Stations.csproj" />
     <Project Path="src/DBetter.Stations.Application/DBetter.Stations.Application.csproj" />
     <Project Path="src/DBetter.Stations.Domain/DBetter.Stations.Domain.csproj" />
     <Project Path="src/DBetter.Stations.WebApi/DBetter.Stations.WebApi.csproj" />
