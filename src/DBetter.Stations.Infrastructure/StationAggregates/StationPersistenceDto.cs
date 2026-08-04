@@ -37,19 +37,8 @@ internal class StationPersistenceDto: IPersistenceDto<Station, StationPersistenc
         Coordinates? location = Latitude is not null && Longitude is not null
             ? new Coordinates(Latitude.Value, Longitude.Value)
             : null;
-        
-        var serves = ServesHighSpeedTrains is not null
-            ? new ServedTransportModes(
-                ServesHighSpeedTrains.Value,
-                ServesFastTrains!.Value,
-                ServesUnpartneredFastTrains!.Value,
-                ServesRegionalTrains!.Value,
-                ServesSuburbanTrains!.Value,
-                ServesUndergroundTrains!.Value,
-                ServesTrams!.Value,
-                ServesBusses!.Value,
-                ServesBoats!.Value)
-            : null;
+
+        var serves = ExtractServedTransportModes();
         
         return new Station(
             new StationId(Id),
@@ -103,5 +92,21 @@ internal class StationPersistenceDto: IPersistenceDto<Station, StationPersistenc
             ServesBusses = domain.Serves?.ServesBusses,
             ServesBoats = domain.Serves?.ServesBoats,
         };
+    }
+
+    public ServedTransportModes? ExtractServedTransportModes()
+    {
+        if (ServesHighSpeedTrains is null) return null;
+
+        return new ServedTransportModes(
+            ServesHighSpeedTrains.Value,
+            ServesFastTrains!.Value,
+            ServesUnpartneredFastTrains!.Value,
+            ServesRegionalTrains!.Value,
+            ServesSuburbanTrains!.Value,
+            ServesUndergroundTrains!.Value,
+            ServesTrams!.Value,
+            ServesBusses!.Value,
+            ServesBoats!.Value);
     }
 }

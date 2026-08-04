@@ -1,3 +1,4 @@
+using DBetter.Stations.Application.Abstractions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,10 +12,11 @@ public static class DependencyInjection
         var settings = new DatabaseSettings();
         configuration.Bind(DatabaseSettings.SectionName, settings);
 
-        services.AddDbContext<Database>(options =>
+        services.AddDbContext<StationsContext>(options =>
         {
             options.UseNpgsql(settings.ConnectionString);
         });
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         return services;
     }

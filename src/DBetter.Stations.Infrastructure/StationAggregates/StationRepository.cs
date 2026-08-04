@@ -1,0 +1,54 @@
+using CleanMessageBus.Abstractions;
+using DBetter.Stations.Domain.StationAggregates;
+using DBetter.Stations.Domain.StationAggregates.ValueObjects;
+using DBetter.Stations.Infrastructure.Database;
+using Microsoft.EntityFrameworkCore;
+
+namespace DBetter.Stations.Infrastructure.StationAggregates;
+
+public class StationRepository(StationsContext db): IStationRepository
+{
+    public async Task<Station?> GetAsync(StationId stationId)
+    {
+        var dto = await db.Stations.FirstOrDefaultAsync(station => station.Id == stationId.Value);
+        return dto?.ToDomain();
+    }
+
+    public void Save(Station station)
+    {
+        var existing = db.Stations.Local.FirstOrDefault(e => e.Id == station.Id.Value);
+        if (existing is null)
+        {
+            db.Stations.Add(StationPersistenceDto.FromDomain(station));
+        }
+        else
+        {
+            existing.Apply(station);
+        }
+    }
+
+    public void SaveMany(IEnumerable<Station> stations)
+    {
+        var locals = db.Stations.Local.ToList();
+        var newStations = new List<StationPersistenceDto>();
+        var domainEvents = new List<DomainEvent>();
+        
+        foreach (var station in stations)
+        {
+            var existing = locals.FirstOrDefault(e => e.Id == station.Id.Value);
+            if (existing is null)
+            {
+                newStations.Add(StationPersistenceDto.FromDomain(station));
+            }
+            else
+            {
+                existing.Apply(station);
+            }
+            
+            domainEvents.AddRange(station.DomainEvents);
+            station.ClearDomainEvents();
+        }
+        
+        db.Stations.AddRange(newStations);
+    }
+}

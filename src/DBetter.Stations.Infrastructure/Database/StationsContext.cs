@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DBetter.Stations.Infrastructure.Database;
 
-public class Database(DbContextOptions<Database> options) : DbContext(options)
+public class StationsContext(DbContextOptions<StationsContext> options) : DbContext(options)
 {
     internal DbSet<StationPersistenceDto> Stations { get; init; }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(Database).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(StationsContext).Assembly);
     }
 }
