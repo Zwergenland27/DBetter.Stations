@@ -31,7 +31,7 @@ public class StationRepository(StationsContext db): IStationRepository
     {
         var locals = db.Stations.Local.ToList();
         var newStations = new List<StationPersistenceDto>();
-        var domainEvents = new List<DomainEvent>();
+        var domainEvents = new List<IDomainEvent>();
         
         foreach (var station in stations)
         {

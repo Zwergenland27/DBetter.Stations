@@ -5,9 +5,9 @@ namespace DBetter.Stations.Core.Abstractions;
 public class AggregateRoot<TId> : Entity<TId>
     where TId: notnull
 {
-    private readonly List<DomainEvent> _domainEvents = [];
+    private readonly List<IDomainEvent> _domainEvents = [];
     
-    public IReadOnlyList<DomainEvent> DomainEvents => _domainEvents.ToList().AsReadOnly();
+    public IReadOnlyList<IDomainEvent> DomainEvents => _domainEvents.ToList().AsReadOnly();
     
     protected AggregateRoot(TId id) : base(id)
     {
@@ -18,7 +18,7 @@ public class AggregateRoot<TId> : Entity<TId>
         _domainEvents.Clear();
     }
 
-    protected void RaiseDomainEvent(DomainEvent domainEvent)
+    protected void RaiseDomainEvent(IDomainEvent domainEvent)
     {
         _domainEvents.Add(domainEvent);
     }

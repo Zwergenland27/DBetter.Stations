@@ -8,8 +8,9 @@
 
     <ItemGroup>
         <InternalsVisibleTo Include="DBetter.Stations.Infrastructure"/>
-      <PackageReference Include="CleanMessageBus.Abstractions" Version="2.0.1" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.14" />
       <PackageReference Include="Zwergenland.CleanDomainValidation" Version="1.1.1" />
+      <PackageReference Include="Zwergenland.CleanMessageBus.Abstractions" Version="3.0.0" />
     </ItemGroup>
 
 </Project>
