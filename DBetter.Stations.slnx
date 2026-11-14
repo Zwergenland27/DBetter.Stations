@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="src/BahnDe.Stations/BahnDe.Stations.csproj" />
+    <Project Path="src/DB.MarketPlace.StaDa/DB.MarketPlace.StaDa.csproj" />
     <Project Path="src/DBetter.Stations.WebApi/DBetter.Stations.WebApi.csproj" />
     <Project Path="src\DBetter.Stations.Core\DBetter.Stations.Core.csproj" />
     <Project Path="src\DBetter.Stations.Infrastructure\DBetter.Stations.Infrastructure.csproj" />
