@@ -13,4 +13,8 @@
       <PackageReference Include="Zwergenland.CleanMessageBus.Abstractions" Version="3.0.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="StationAggregates\Features\FetchInformation\" />
+    </ItemGroup>
+
 </Project>

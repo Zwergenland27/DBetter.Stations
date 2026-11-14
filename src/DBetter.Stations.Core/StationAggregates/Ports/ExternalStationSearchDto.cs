@@ -1,6 +1,6 @@
 using DBetter.Stations.Core.StationAggregates.ValueObjects;
 
-namespace DBetter.Stations.Core.StationAggregates.Features.Search.Ports;
+namespace DBetter.Stations.Core.StationAggregates.Ports;
 
 public class ExternalStationSearchDto
 {

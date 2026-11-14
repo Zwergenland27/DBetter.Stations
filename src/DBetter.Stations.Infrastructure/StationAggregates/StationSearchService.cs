@@ -1,5 +1,5 @@
 using BahnDe.Stations;
-using DBetter.Stations.Core.StationAggregates.Features.Search.Ports;
+using DBetter.Stations.Core.StationAggregates.Ports;
 using DBetter.Stations.Core.StationAggregates.ValueObjects;
 
 namespace DBetter.Stations.Infrastructure.StationAggregates;
@@ -32,6 +32,13 @@ public class StationSearchService(IStationService service): IExternalStationSear
         }
 
         return result;
+    }
+
+    public async Task<ExternalStationSearchDto?> FindMatchAsync(StationName officialName, EvaNumber evaNumber)
+    {
+        var results = await SearchAsync(officialName.Value);
+        var matchByEva = results.FirstOrDefault(station => station.EvaNumber == evaNumber);
+        return matchByEva;
     }
 
     private static ServedTransportModes ExtractServedTransportModes(Station station)
