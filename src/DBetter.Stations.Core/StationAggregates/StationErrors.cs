@@ -42,4 +42,11 @@ public static class StationErrors
         public static Error InvalidFormat(string value) => Error.Validation("Station.InfoId.InvalidFormat",
             $"The station info id '{value}' must only contain numbers");
     }
+
+    public static class IfOpt
+    {
+        public static Error Invalid(string value) => Error.Validation(
+            "Station.IfOpt.InvalidFormat",
+            $"{value} is no valid ifopt.");
+    }
 }

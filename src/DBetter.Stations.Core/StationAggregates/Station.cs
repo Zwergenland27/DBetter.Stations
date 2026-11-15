@@ -1,5 +1,7 @@
 using DBetter.Stations.Core.Abstractions;
+using DBetter.Stations.Core.Common;
 using DBetter.Stations.Core.StationAggregates.Events;
+using DBetter.Stations.Core.StationAggregates.Ports.StationDetails;
 using DBetter.Stations.Core.StationAggregates.ValueObjects;
 
 namespace DBetter.Stations.Core.StationAggregates;
@@ -18,7 +20,25 @@ public class Station: AggregateRoot<StationId>
     
     public StationInfoId? InfoId { get; private set; }
     
+    public IfOpt? IfOpt { get; private set; }
+    
+    public StationDetails Details { get; private set; }
+    
+    public StepFreeAccess? StepFreeAccess { get; private set; }
+    
+    public MobilityServiceAvailability? MobilityServiceAvailability { get; private set; }
+    
+    public Address? Address { get; private set; }
+    
+    public Facilities? Facilities { get; private set; }
+    
     public ServedTransportModes? Serves { get; private set; }
+    
+    public OpeningHours? DbInformation { get; private set; }
+    
+    public OpeningHours? LocalServiceStaff { get; private set; }
+    
+    public OpeningHours? MobilityServiceStaff { get; private set; }
     
     internal Station(StationId id,
         EvaNumber evaNumber,
@@ -27,7 +47,9 @@ public class Station: AggregateRoot<StationId>
         StationCategory? stationCategory,
         Ril100Code? ril100Code,
         StationInfoId? infoId,
-        ServedTransportModes? serves) : base(id)
+        ServedTransportModes? serves,
+        IfOpt? ifOpt,
+        StationDetails? details) : base(id)
     {
         EvaNumber = evaNumber;
         OfficialName = officialName;
@@ -36,6 +58,14 @@ public class Station: AggregateRoot<StationId>
         Ril100Code = ril100Code;
         InfoId = infoId;
         Serves = serves;
+        IfOpt = ifOpt;
+        StepFreeAccess = details?.StepFreeAccess;
+        MobilityServiceAvailability = details?.MobilityServiceAvailability;
+        Address = details?.Address;
+        Facilities = details?.Facilities;
+        DbInformation = details?.DbInformation;
+        LocalServiceStaff = details?.LocalServiceStaff;
+        MobilityServiceStaff = details?.MobilityServiceStaff;
     }
 
     public static Station Create(
@@ -55,7 +85,9 @@ public class Station: AggregateRoot<StationId>
             stationCategory,
             ril100Code,
             infoId,
-            serves);
+            serves,
+            null,
+            null);
 
         station.RaiseDomainEvent(new NewStationCreatedDomainEvent(station.Id));
 
