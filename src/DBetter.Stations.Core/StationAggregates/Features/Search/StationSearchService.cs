@@ -1,6 +1,7 @@
 using DBetter.Stations.Core.Abstractions;
 using DBetter.Stations.Core.StationAggregates.Features.Search.Ports;
 using DBetter.Stations.Core.StationAggregates.Ports;
+using DBetter.Stations.Core.StationAggregates.Ports.ExternalStationSearch;
 using DBetter.Stations.Core.StationAggregates.ValueObjects;
 
 namespace DBetter.Stations.Core.StationAggregates.Features.Search;

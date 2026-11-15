@@ -91,4 +91,41 @@ public class Station: AggregateRoot<StationId>
 
         return station;
     }
+
+    public void Update(Coordinates location, ServedTransportModes serves)
+    {
+        Location = location;
+        Serves = serves;
+    }
+
+    public void Update(Ril100Code ril100)
+    {
+        Ril100Code = ril100;
+    }
+
+    public void Update(StationCategory? category, IfOpt? ifOpt, StationInfoId? infoId, StationDetails details)
+    {
+        if (category is not null)
+        {
+            StationCategory = category;
+        }
+        
+        if (ifOpt is not null)
+        {
+            IfOpt = ifOpt;
+        }
+
+        if (infoId is not null)
+        {
+            InfoId = infoId.Value;
+        }
+        
+        StepFreeAccess = details.StepFreeAccess;
+        MobilityServiceAvailability = details.MobilityServiceAvailability;
+        Address = details.Address;
+        Facilities = details.Facilities;
+        DbInformation = details.DbInformation;
+        LocalServiceStaff = details.LocalServiceStaff;
+        MobilityServiceStaff = details.MobilityServiceStaff;
+    }
 }
