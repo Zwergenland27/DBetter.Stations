@@ -22,8 +22,6 @@ public class Station: AggregateRoot<StationId>
     
     public IfOpt? IfOpt { get; private set; }
     
-    public StationDetails Details { get; private set; }
-    
     public StepFreeAccess? StepFreeAccess { get; private set; }
     
     public MobilityServiceAvailability? MobilityServiceAvailability { get; private set; }

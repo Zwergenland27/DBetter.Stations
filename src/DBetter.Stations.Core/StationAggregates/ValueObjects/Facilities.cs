@@ -65,9 +65,9 @@ public record Facilities
     /// <summary>
     /// Public Wi-Fi available
     /// </summary>
-    public bool HasWiFi { get; }
+    public bool HasWifi { get; }
 
-    public Facilities(bool hasBicycleParking, bool hasCarRental, bool hasDbLounge, bool hasLocalPublicTransport, bool hasLockerSystem, bool hasLostAndFound, bool hasParking, bool hasPublicFacilities, bool hasRailwayMission, bool hasTaxiRank, bool hasTravelCenter, bool hasTravelNecessities, bool hasWiFi)
+    public Facilities(bool hasBicycleParking, bool hasCarRental, bool hasDbLounge, bool hasLocalPublicTransport, bool hasLockerSystem, bool hasLostAndFound, bool hasParking, bool hasPublicFacilities, bool hasRailwayMission, bool hasTaxiRank, bool hasTravelCenter, bool hasTravelNecessities, bool hasWifi)
     {
         HasBicycleParking = hasBicycleParking;
         HasCarRental = hasCarRental;
@@ -81,6 +81,6 @@ public record Facilities
         HasTaxiRank = hasTaxiRank;
         HasTravelCenter = hasTravelCenter;
         HasTravelNecessities = hasTravelNecessities;
-        HasWiFi = hasWiFi;
+        HasWifi = hasWifi;
     }
 }

@@ -22,7 +22,7 @@ public sealed record IfOpt
     
     public string Value { get; }
 
-    private IfOpt(string value)
+    internal IfOpt(string value)
     {
         Value = value;
     }

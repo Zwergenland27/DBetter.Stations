@@ -6,7 +6,9 @@ public record OpeningHours
     
     public DaySchedule? PublicHolidays { get; }
 
-    private OpeningHours(Dictionary<DayOfWeek, DaySchedule> weekdays, DaySchedule? publicHolidays)
+    public IReadOnlyDictionary<DayOfWeek, DaySchedule> WeekDays => _weekDays.AsReadOnly();
+
+    internal OpeningHours(Dictionary<DayOfWeek, DaySchedule> weekdays, DaySchedule? publicHolidays)
     {
         _weekDays = weekdays;
         PublicHolidays = publicHolidays;

@@ -12,6 +12,7 @@ public record Address
     public const int StreetMaxLength = 100;
     public const int HouseNumberMaxLength = 10;
     public const int CityMaxLength = 85;
+    public const int ZipCodeLength = 5;
     
     /// <summary>
     /// Unanchored pattern for a valid house number, e.g. "12", "12a", "12 a", "12-14", "12a-12c" or "12/1".
@@ -32,7 +33,7 @@ public record Address
     public string ZipCode { get; }
     public string City { get; }
     
-    private Address(string street, string? houseNumber, string zipCode, string city)
+    internal Address(string street, string? houseNumber, string zipCode, string city)
     {
         Street = street;
         HouseNumber = houseNumber;
@@ -107,7 +108,7 @@ public record Address
             }
         }
 
-        if (zipCode.Length != 5)
+        if (zipCode.Length != ZipCodeLength)
         {
             result.Failed(CommonErrors.Address.ZipCodeInvalid(zipCode));   
         }

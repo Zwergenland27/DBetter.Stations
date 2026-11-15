@@ -1,5 +1,6 @@
 using BahnDe.Stations;
 using DBetter.Stations.Core.StationAggregates.Ports;
+using DBetter.Stations.Core.StationAggregates.Ports.ExternalStationSearch;
 using DBetter.Stations.Core.StationAggregates.ValueObjects;
 
 namespace DBetter.Stations.Infrastructure.StationAggregates;
