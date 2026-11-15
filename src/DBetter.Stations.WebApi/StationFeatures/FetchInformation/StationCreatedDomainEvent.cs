@@ -1,4 +1,6 @@
 using CleanMessageBus.Hosting;
+using DB.MarketPlace.StaDa;
+using DB.MarketPlace.Timetables;
 using DBetter.Stations.Core.StationAggregates.Events;
 using DBetter.Stations.Core.StationAggregates.Features.FetchInformation;
 using DBetter.Stations.Core.StationAggregates.ValueObjects;
@@ -17,16 +19,16 @@ public static class StationCreatedDomainEvent
             FetchStationInformationService service,
             CancellationToken ct) =>
         {
-            await service.FetchInformation(@event.StationId);
+            await service.FetchInformation(@event.StationId, ct);
         });
 
         app.MapPost("stations/{id}/actions/fetch-information",
-                async (string id, FetchStationInformationService service) =>
+                async (string id, FetchStationInformationService service, CancellationToken ct) =>
                 {
                     var stationIdCreationResult = StationId.Create(id);
                     if (stationIdCreationResult.HasFailed) return Results.BadRequest();
 
-                    await service.FetchInformation(stationIdCreationResult.Value);
+                    await service.FetchInformation(stationIdCreationResult.Value, ct);
                     return Results.Ok();
                 })
             .WithName("FetchStationInformation")
