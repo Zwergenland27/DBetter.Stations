@@ -1,9 +1,7 @@
 using DBetter.Stations.Core;
-using DBetter.Stations.Core.StationAggregates.Features.Search;
 using DBetter.Stations.Infrastructure;
-using DBetter.Stations.WebApi.StationFeatures;
+using DBetter.Stations.WebApi.StationFeatures.FetchInformation;
 using DBetter.Stations.WebApi.StationFeatures.Search;
-using Microsoft.AspNetCore.Mvc;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,5 +25,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.AddStationSearch();
+app.AddFetchStationInformation();
 
 app.Run();
