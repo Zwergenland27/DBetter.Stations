@@ -10,11 +10,11 @@ public record struct StationCategory(short Value)
     internal const int MinCategory = 1;
     internal const int MaxCategory = 7;
  
-    public static CanFail<StationCategory> Create(short value)
+    public static CanFail<StationCategory> Create(int value)
     {
         if (value is >= MinCategory and <= MaxCategory)
         {
-            return new StationCategory(value);
+            return new StationCategory((short) value);
         }
  
         return StationErrors.Category.OutOfRange(value);

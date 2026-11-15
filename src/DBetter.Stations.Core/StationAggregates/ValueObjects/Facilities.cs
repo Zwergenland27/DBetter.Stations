@@ -67,7 +67,9 @@ public record Facilities
     /// </summary>
     public bool HasWifi { get; }
 
-    public Facilities(bool hasBicycleParking, bool hasCarRental, bool hasDbLounge, bool hasLocalPublicTransport, bool hasLockerSystem, bool hasLostAndFound, bool hasParking, bool hasPublicFacilities, bool hasRailwayMission, bool hasTaxiRank, bool hasTravelCenter, bool hasTravelNecessities, bool hasWifi)
+    public Facilities(bool hasBicycleParking, bool hasCarRental, bool hasDbLounge, bool hasLocalPublicTransport,
+        bool hasLockerSystem, bool hasLostAndFound, bool hasParking, bool hasPublicFacilities, bool hasRailwayMission,
+        bool hasTaxiRank, bool hasTravelCenter, bool hasTravelNecessities, bool hasWifi)
     {
         HasBicycleParking = hasBicycleParking;
         HasCarRental = hasCarRental;

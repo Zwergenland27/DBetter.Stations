@@ -23,7 +23,8 @@ public sealed record OpeningPeriod
 
     public static CanFail<OpeningPeriod> Create(TimeOnly from, TimeOnly to)
     {
-        var duration = to.ToTimeSpan() - from.ToTimeSpan();
+        var end = to == TimeOnly.MaxValue ? TimeSpan.FromDays(1) : to.ToTimeSpan();
+        var duration = end - from.ToTimeSpan();
         return Create(from, duration <= TimeSpan.Zero ? duration + TimeSpan.FromDays(1) : duration);
     }
 }
