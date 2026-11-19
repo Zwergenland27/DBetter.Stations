@@ -2,11 +2,14 @@ using CleanMessageBus.Abstractions;
 using DBetter.Stations.Core.StationAggregates;
 using DBetter.Stations.Core.StationAggregates.ValueObjects;
 using DBetter.Stations.Infrastructure.Database;
+using DBetter.Stations.Infrastructure.Messaging;
 using Microsoft.EntityFrameworkCore;
 
 namespace DBetter.Stations.Infrastructure.StationAggregates;
 
-public class StationRepository(StationsContext db): IStationRepository
+public class StationRepository(
+    StationsContext db,
+    TimeProvider time): IStationRepository
 {
     public async Task<Station?> GetAsync(StationId stationId)
     {
@@ -25,6 +28,8 @@ public class StationRepository(StationsContext db): IStationRepository
         {
             existing.Apply(station);
         }
+        
+        db.OutboxMessages.AddRange(station.DomainEvents.Select(e => OutboxMessage.Create(e, time.GetUtcNow())));
     }
 
     public void SaveMany(IEnumerable<Station> stations)
@@ -50,5 +55,6 @@ public class StationRepository(StationsContext db): IStationRepository
         }
         
         db.Stations.AddRange(newStations);
+        db.OutboxMessages.AddRange(domainEvents.Select(e => OutboxMessage.Create(e, time.GetUtcNow())));
     }
 }

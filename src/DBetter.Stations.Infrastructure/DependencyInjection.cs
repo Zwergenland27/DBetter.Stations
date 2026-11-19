@@ -10,6 +10,7 @@ using DBetter.Stations.Core.StationAggregates.Ports;
 using DBetter.Stations.Core.StationAggregates.Ports.ExternalStationSearch;
 using DBetter.Stations.Core.StationAggregates.Ports.StationDetails;
 using DBetter.Stations.Infrastructure.Database;
+using DBetter.Stations.Infrastructure.Messaging;
 using DBetter.Stations.Infrastructure.StationAggregates;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,11 +21,8 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddCleanMessageBus(cfg =>
-        {
-            cfg.ApplicationName = "DBetter.Stations";
-            cfg.UseRabbitMq();
-        });
+        services.AddSingleton(TimeProvider.System);
+        services.AddMessaging();
         services.AddDatabase(configuration);
         services.AddBahnStationsApi();
         services.AddStaDaApi(configuration);
