@@ -17,7 +17,7 @@ public class StationSearchPrioritizer(
         var ordered = merged.OrderByDescending(IsExactMatch);
         if (considerCategory)
         {
-            ordered = ordered.ThenBy(s => s.Category);
+            ordered = ordered.ThenBy(s => s.Category!.Value.Value);
         }
 
         if (considerServices)
